@@ -53,7 +53,7 @@ class SerialStatus:
 class RobotControlNode(Node):
     """Simple node for controlling a differential drive robot"""
     
-        def init_motor_pins(self):
+     def init_motor_pins(self):
         GPIO.setmode(GPIO.BCM)
         GPIO.setup(self.left_front_motor_pin, GPIO.OUT)
         GPIO.setup(self.left_rear_motor_pin, GPIO.OUT)
