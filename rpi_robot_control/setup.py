@@ -13,7 +13,7 @@ setup(
     ],
     install_requires=['setuptools'],
     zip_safe=True,
-    maintainer='pepe',
+    maintainer='smartway',
     maintainer_email='eduardo.laruta@gmail.com',
     description='TODO: Package description',
     license='TODO: License declaration',
