@@ -142,7 +142,7 @@ class GoToGoalNode(Node):
         self.get_logger().info('Executing action...')
 
         feedback_msg = GoToGoal.Feedback()
-        log_file = open(f'/home/pepe/log/{int(time.time() * 1000)}.log', 'w')
+        log_file = open(f'/home/smartway/log/{int(time.time() * 1000)}.log', 'w')
 
         while not self.update_control_loop():
             self.is_moving = True
