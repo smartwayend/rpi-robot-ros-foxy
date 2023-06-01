@@ -3,6 +3,7 @@
 from dataclasses import dataclass
 import math
 import time
+import RPi.GPIO as GPIO
 import serial
 import rclpy
 from rclpy.node import Node
