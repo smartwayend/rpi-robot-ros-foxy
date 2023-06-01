@@ -40,14 +40,14 @@ def generate_launch_description():
         Node(
             package='tf2_ros',
             executable='static_transform_publisher',
-            arguments=['-0.064', '0', '0.120', '0', '0', '0', 'base_link', 'laser'],
+            arguments=['0', '0', '0.115', '0', '0', '0', 'base_link', 'laser'],
             output='screen'
         ),
         # static transform from link to footprint
         Node(
             package='tf2_ros',
             executable='static_transform_publisher',
-            arguments=['0', '0', '-0.0325', '0', '0', '0', 'base_link', 'base_footprint'],
+            arguments=['0', '0', '-0.1575', '0', '0', '0', 'base_link', 'base_footprint'],
             output='screen'
         )
     ])
