@@ -16,11 +16,7 @@ def generate_launch_description():
 
 
     return LaunchDescription([
-        DeclareLaunchArgument(
-            'pico_port',
-            default_value=pico_port,
-            description='Serial port for communication with microcontroller'
-        ),
+        
         DeclareLaunchArgument(
             'rplidar_port',
             default_value=rplidar_port,
@@ -37,9 +33,6 @@ def generate_launch_description():
         Node(
             package='rpi_robot_bringup',
             executable='rpi_robot_control.py',
-            parameters=[{
-                'pico_port': pico_port
-            }],
             arguments=[],
             output='screen'
         ),
