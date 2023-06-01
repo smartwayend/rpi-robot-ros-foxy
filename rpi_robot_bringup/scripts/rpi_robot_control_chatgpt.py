@@ -87,7 +87,7 @@ class RobotControlNode(Node):
         t.child_frame_id = '/base_link'
         t.transform.translation.x = robot_state.x_pos
         t.transform.translation.y = robot_state.y_pos
-        t.transform.translation.z = 0.0325
+        t.transform.translation.z = 0.185
         t.transform.rotation = robot_orientation
 
         # odometry twist
@@ -97,7 +97,7 @@ class RobotControlNode(Node):
         odom_msg.header.stamp = timestamp
         odom_msg.pose.pose.position.x = robot_state.x_pos
         odom_msg.pose.pose.position.y = robot_state.y_pos
-        odom_msg.pose.pose.position.z = 0.325
+        odom_msg.pose.pose.position.z = 0.185
         odom_msg.pose.pose.orientation = robot_orientation
         odom_msg.twist.twist.linear.x = robot_state.v
         odom_msg.twist.twist.angular.z = robot_state.w
