@@ -54,7 +54,11 @@ class RobotControlNode(Node):
     def __init__(self):
         super().__init__('rpi_robot_node')
         
-        self.declare_parameter('pico_port', '/dev/ttyACM0')
+        
+        self.declare_parameter('left_front_motor_pin', 22)
+        self.declare_parameter('left_rear_motor_pin', 27)
+        self.declare_parameter('right_front_motor_pin', 23)
+        self.declare_parameter('right_rear_motor_pin', 24)
 
         self.twist_subscription = self.create_subscription(
             Twist,
