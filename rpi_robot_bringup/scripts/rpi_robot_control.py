@@ -173,6 +173,55 @@ class RobotControlNode(Node):
 
         return SerialStatus(*values_list)
     
+    
+    
+    
+    def send_command(self, linear: float, angular: float) -> SerialStatus:
+        self.get_logger().debug(f'Data to send: {linear}, {angular}')
+
+        # Calculate individual wheel speeds
+        left_front_speed = linear - angular
+        left_rear_speed = linear - angular
+        right_front_speed = linear + angular
+        right_rear_speed = linear + angular
+
+        # Apply motor control logic based on wheel speeds
+        # You need to implement the control logic for your specific robot hardware
+
+        # Example control logic for controlling motors with PWM on GPIO pins
+        left_front_duty_cycle = abs(left_front_speed) * 100
+        left_rear_duty_cycle = abs(left_rear_speed) * 100
+        right_front_duty_cycle = abs(right_front_speed) * 100
+        right_rear_duty_cycle = abs(right_rear_speed) * 100
+
+        GPIO.output(self.left_front_motor_pin, GPIO.HIGH if left_front_speed >= 0 else GPIO.LOW)
+        GPIO.output(self.left_rear_motor_pin, GPIO.HIGH if left_rear_speed >= 0 else GPIO.LOW)
+        GPIO.output(self.right_front_motor_pin, GPIO.HIGH if right_front_speed >= 0 else GPIO.LOW)
+        GPIO.output(self.right_rear_motor_pin, GPIO.HIGH if right_rear_speed >= 0 else GPIO.LOW)
+
+        self.left_front_motor.ChangeDutyCycle(left_front_duty_cycle)
+        self.left_rear_motor.ChangeDutyCycle(left_rear_duty_cycle)
+        self.right_front_motor.ChangeDutyCycle(right_front_duty_cycle)
+        self.right_rear_motor.ChangeDutyCycle(right_rear_duty_cycle)
+
+        # Placeholder values for robot status
+        x_pos = 0.0
+        y_pos = 0.0
+        theta = 0.0
+        v = 0.0
+        w = 0.0
+
+        return RobotStatus(linear, angular, left_front_speed, right_front_speed, 0.0, 0.0, x_pos, y_pos, theta, v, w)
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
     def twist_callback(self, twist: Twist):
         self.twist = twist
         self.get_logger().info(f'Twist received: {twist}')
