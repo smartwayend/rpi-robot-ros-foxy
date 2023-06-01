@@ -99,6 +99,25 @@ class RobotControlNode(Node):
         # tf
         self.tf_broadcaster = TransformBroadcaster(self)
     
+    def init_motor_pins(self):
+        GPIO.setmode(GPIO.BCM)
+        GPIO.setup(self.left_front_motor_pin, GPIO.OUT)
+        GPIO.setup(self.left_rear_motor_pin, GPIO.OUT)
+        GPIO.setup(self.right_front_motor_pin, GPIO.OUT)
+        GPIO.setup(self.right_rear_motor_pin, GPIO.OUT)
+        self.left_front_motor = GPIO.PWM(self.left_front_motor_pin, 1000)
+        self.left_rear_motor = GPIO.PWM(self.left_rear_motor_pin, 1000)
+        self.right_front_motor = GPIO.PWM(self.right_front_motor_pin, 1000)
+        self.right_rear_motor = GPIO.PWM(self.right_rear_motor_pin, 1000)
+        self.left_front_motor.start(0)
+        self.left_rear_motor.start(0)
+        self.right_front_motor.start(0)
+        self.right_rear_motor.start(0)
+    
+    
+    
+    
+    
     def pub_callback(self):
         robot_state = self.send_command(self.twist.linear.x, self.twist.angular.z)
         if robot_state is None:
