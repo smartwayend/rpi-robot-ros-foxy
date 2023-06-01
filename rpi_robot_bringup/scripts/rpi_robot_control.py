@@ -176,7 +176,7 @@ class RobotControlNode(Node):
     
     
     
-    def send_command(self, linear: float, angular: float) -> SerialStatus:
+    def send_command(self, linear: float, angular: float) -> RobotStatus:
         self.get_logger().debug(f'Data to send: {linear}, {angular}')
 
         # Calculate individual wheel speeds
