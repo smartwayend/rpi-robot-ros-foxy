@@ -147,6 +147,18 @@ class RobotControlNode(Node):
 
 def main(args=None):
     rclpy.init(args=args)
+    #test GPIO 
+    if GPIO.input(left_motor_pin1) == GPIO.HIGH:
+      print("Left motor pin 1 is connected")
+    else:
+      print("Left motor pin 1 is not connected")
+
+    if GPIO.input(right_motor_pin1) == GPIO.HIGH:
+      print("Right motor pin 1 is connected")
+    else:
+      print("Right motor pin 1 is not connected")
+    
+    
     robot_control_node = RobotControlNode()
     rclpy.spin(robot_control_node)
 
