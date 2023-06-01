@@ -29,7 +29,7 @@ def generate_launch_description():
     rpi_robot_bringup_prefix = get_package_share_directory('rpi_robot_bringup')
     return LaunchDescription([
         IncludeLaunchDescription(
-            PythonLaunchDescriptionSource([rpi_robot_bringup_prefix, '/launch', '/rpi_robot_nostate.launch.py']),
+            PythonLaunchDescriptionSource([rpi_robot_bringup_prefix, '/launch', '/rpi_robot.launch.py']),
             launch_arguments={}.items(),
         ),
         IncludeLaunchDescription(
