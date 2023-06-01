@@ -75,10 +75,24 @@ class RobotControlNode(Node):
             10
         )
         time.sleep(0.2)
+        
+        #나요나 
+        self.left_front_motor_pin = self.get_parameter('left_front_motor_pin').get_parameter_value().integer_value
+        self.left_rear_motor_pin = self.get_parameter('left_rear_motor_pin').get_parameter_value().integer_value
+        self.right_front_motor_pin = self.get_parameter('right_front_motor_pin').get_parameter_value().integer_value
+        self.right_rear_motor_pin = self.get_parameter('right_rear_motor_pin').get_parameter_value().integer_value
+        self.init_motor_pins()
+        self.twist = Twist()
+        
+        
+        #원래꺼 
         self.port = self.get_parameter('pico_port').get_parameter_value().string_value
         self.ser = serial.Serial(self.port)
         self.get_logger().info(f'Using serial port {self.ser.name}')
         self.twist = Twist()
+        
+        
+        
         # set timer
         self.pub_period = 0.04  # 0.02 seconds = 50 hz = pid rate for robot
         self.pub_timer = self.create_timer(self.pub_period, self.pub_callback)
