@@ -11,7 +11,7 @@ from launch_ros.actions import Node
 
 
 def generate_launch_description():
-    pico_port = LaunchConfiguration('pico_port', default='/dev/ttyACM0')
+    
     rplidar_port = LaunchConfiguration('rplidar_port', default='/dev/ttyUSB0')
 
 
