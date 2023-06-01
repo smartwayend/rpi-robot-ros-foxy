@@ -108,12 +108,6 @@ class RobotControlNode(Node):
         # tf
         self.tf_broadcaster = TransformBroadcaster(self)
     
-
-    
-    
-    
-    
-    
     def pub_callback(self):
         robot_state = self.send_command(self.twist.linear.x, self.twist.angular.z)
         if robot_state is None:
@@ -213,14 +207,7 @@ class RobotControlNode(Node):
 
         return RobotStatus(linear, angular, left_front_speed, right_front_speed, 0.0, 0.0, x_pos, y_pos, theta, v, w)
 
-    
-    
-    
-    
-    
-    
-    
-    
+ 
     
     def twist_callback(self, twist: Twist):
         self.twist = twist
