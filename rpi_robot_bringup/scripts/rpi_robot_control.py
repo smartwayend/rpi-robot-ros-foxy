@@ -51,7 +51,7 @@ class RobotControlNode(Node):
         time.sleep(0.2)
         self.left_motor_pin1 = 22  # GPIO pin for left motor pin 1
         self.left_motor_pin2 = 27  # GPIO pin for left motor pin 2
-        self.right_motor_pin1 = 23  # GPIO pin for right motor pin 1
+        self.right_motor_pin1 = 25  # GPIO pin for right motor pin 1
         self.right_motor_pin2 = 24 # GPIO pin for right motor pin 2
 
         GPIO.setmode(GPIO.BCM)
